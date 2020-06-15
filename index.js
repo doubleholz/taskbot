@@ -137,7 +137,7 @@ bot.command("tuesday", (ctx) => {
       records.forEach(function(record) {
         day = record.get("Day")
         tasks = record.get("Tasks")
-        if (day == "tuesday") {
+        if (day == "Tuesday") {
           console.log(tasks)
           ctx.reply("Tasks for Tuesday: \n\n" + tasks)
         }
