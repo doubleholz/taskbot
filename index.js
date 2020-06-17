@@ -5,6 +5,19 @@ const bot = new Telegraf(token)
 const Airtable = require('airtable')
 const airTasks = new Airtable({apiKey: process.env.airKey}).base(process.env.airTasksId) //Task Calendar
 const moment = require("moment")
+const http = require('http');
+
+const PORT = 3000;
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello dev.to!\n');
+});
+
+server.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}.`);
+});
 
 recordId = ["rec0cCuhE8Ce26T4q", "recAwfW3CYpfuZDpm", "recp8x9OMaklAM8zx", "recCC4HlRCP3qW38Z", "recwtpnFyX7T1il20", "recOQzzD3npJL734d", "recLAQVEqh1KiHmRP"]
 dayArray = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
