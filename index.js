@@ -87,7 +87,7 @@ bot.command("goals", (ctx) => {
         desc = record.get("Description")
         date = record.get("Milestone/Deadline")  
         diff = moment(date).diff(utc[0], "days")
-        if (diff < 30) {
+        if ((diff < 30) && (moment(date).isBefore(utc[0], "days") == false)) {
           nameArr.push(name)
           descArr.push(desc)
           dateArr.push(date)
