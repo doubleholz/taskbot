@@ -35,7 +35,7 @@ bot.start((ctx) => {
 })
 
 //Update Daily Tasks
-bot.command("update", (ctx) => {
+bot.command("Update", (ctx) => {
   ctx.deleteMessage()
   msg = ctx.message.text.split("\n")
   dayItem = msg[1].charAt(0).toUpperCase() + msg[1].slice(1)
@@ -60,14 +60,14 @@ bot.command("update", (ctx) => {
 })
 
 //Goto Task Calendar
-bot.command("calendar", (ctx) => {
+bot.command("Calendar", (ctx) => {
   ctx.deleteMessage()
   url = "https://airtable.com/tbl1Khu5icd5iBz1o/viwH0IQ3l19Pi4Ssy?blocks=hide&date=undefined&mode=undefined"
   ctx.reply(url)
 })
 
 //Get Goals in coming 30 days.
-bot.command("goals", (ctx) => {
+bot.command("Goals", (ctx) => {
   ctx.deleteMessage()
   nameArr = []
   descArr = []
@@ -91,19 +91,20 @@ bot.command("goals", (ctx) => {
           nameArr.push(name)
           descArr.push(desc)
           dateArr.push(date)
+          diffArr.push(diff)
           }
         })
         l = nameArr.length
         for (i = 0; i < l; i++) {
-          goalArr.push(dateArr[i] + "\n"  + nameArr[i] + "\n" + descArr[i])
+          goalArr.push(`${dateArr[i]} (in ${diffArr[i]} days)\n${nameArr[i]}\n${descArr[i]}`)
         }
         post = goalArr.toString().replace(/undefined/g, "\n").replace(/,/g, "\n\n")
-        ctx.reply("Goals in the next 30 days are:\n\n" + post)
+        ctx.reply(`Today is: ${utc[0]}\nGoals in the next 30 days are:\n\n ${post}`)
       })
     })
 
 //today's tasks
-bot.command("today", (ctx) => {
+bot.command("Today", (ctx) => {
   ctx.deleteMessage()
   utcDay = moment().format("dddd")
   console.log("Today is", utcDay)
@@ -123,7 +124,7 @@ bot.command("today", (ctx) => {
 })
 
 //monday
-bot.command("monday", (ctx) => {
+bot.command("Monday", (ctx) => {
   ctx.deleteMessage()
   airTasks('Weekly')
     .select()
@@ -141,7 +142,7 @@ bot.command("monday", (ctx) => {
 })
 
 //tuesday
-bot.command("tuesday", (ctx) => {
+bot.command("Tuesday", (ctx) => {
   ctx.deleteMessage()
   airTasks('Weekly')
     .select()
@@ -159,7 +160,7 @@ bot.command("tuesday", (ctx) => {
 })
 
 //wednesday
-bot.command("wednesday", (ctx) => {
+bot.command("Wednesday", (ctx) => {
   ctx.deleteMessage()
   airTasks('Weekly')
     .select()
@@ -177,7 +178,7 @@ bot.command("wednesday", (ctx) => {
 })
 
 //thursday
-bot.command("thursday", (ctx) => {
+bot.command("Thursday", (ctx) => {
   ctx.deleteMessage()
   airTasks('Weekly')
     .select()
@@ -195,7 +196,7 @@ bot.command("thursday", (ctx) => {
 })
 
 //friday
-bot.command("friday", (ctx) => {
+bot.command("Friday", (ctx) => {
   ctx.deleteMessage()
   airTasks('Weekly')
     .select()
@@ -213,7 +214,7 @@ bot.command("friday", (ctx) => {
 })
 
 //saturday
-bot.command("saturday", (ctx) => {
+bot.command("Saturday", (ctx) => {
   ctx.deleteMessage()
   airTasks('Weekly')
     .select()
@@ -222,7 +223,7 @@ bot.command("saturday", (ctx) => {
       records.forEach(function(record) {
         day = record.get("Day")
         tasks = record.get("Tasks")
-        if (day == "saturday") {
+        if (day == "Saturday") {
           console.log(tasks)
           ctx.reply("Tasks for Saturday: \n\n" + tasks)
         }
@@ -231,7 +232,7 @@ bot.command("saturday", (ctx) => {
 })
 
 //sunday
-bot.command("sunday", (ctx) => {
+bot.command("Sunday", (ctx) => {
   ctx.deleteMessage()
   airTasks('Weekly')
     .select()
