@@ -1,11 +1,11 @@
 {
-  "name": "goals",
+  "name": "@doubleholz/taskbot-goals",
   "version": "1.0.0",
   "description": "telegram bot for goals",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm start"
+    "start": "node index.js"
   },
   "keywords": [
     "goals",
@@ -21,5 +21,6 @@
     "moment": "^2.26.0",
     "nodemon": "^2.0.4",
     "telegraf": "^3.38.0"
-  }
+  },
+  "devDependencies": {}
 }

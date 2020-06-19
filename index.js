@@ -7,17 +7,17 @@ const airTasks = new Airtable({apiKey: process.env.airKey}).base(process.env.air
 const moment = require("moment")
 const http = require('http');
 
-const PORT = 3000;
+// const PORT = 3000;
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello dev.to!\n');
-});
+// const server = http.createServer((req, res) => {
+//   res.statusCode = 200;
+//   res.setHeader('Content-Type', 'text/plain');
+//   res.end('Hello dev.to!\n');
+// });
 
-server.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}.`);
-});
+// server.listen(PORT, () => {
+//   console.log(`Server running on port ${PORT}.`);
+// });
 
 recordId = ["rec0cCuhE8Ce26T4q", "recAwfW3CYpfuZDpm", "recp8x9OMaklAM8zx", "recCC4HlRCP3qW38Z", "recwtpnFyX7T1il20", "recOQzzD3npJL734d", "recLAQVEqh1KiHmRP"]
 dayArray = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
@@ -60,14 +60,14 @@ bot.command("Update", (ctx) => {
 })
 
 //Goto Task Calendar
-bot.command("Calendar", (ctx) => {
+bot.command("calendar", (ctx) => {
   ctx.deleteMessage()
   url = "https://airtable.com/tbl1Khu5icd5iBz1o/viwH0IQ3l19Pi4Ssy?blocks=hide&date=undefined&mode=undefined"
   ctx.reply(url)
 })
 
 //Get Goals in coming 30 days.
-bot.command("Goals", (ctx) => {
+bot.command("goals", (ctx) => {
   ctx.deleteMessage()
   nameArr = []
   descArr = []
@@ -104,7 +104,7 @@ bot.command("Goals", (ctx) => {
     })
 
 //today's tasks
-bot.command("Today", (ctx) => {
+bot.command("today", (ctx) => {
   ctx.deleteMessage()
   utcDay = moment().format("dddd")
   console.log("Today is", utcDay)
@@ -124,7 +124,7 @@ bot.command("Today", (ctx) => {
 })
 
 //monday
-bot.command("Monday", (ctx) => {
+bot.command("monday", (ctx) => {
   ctx.deleteMessage()
   airTasks('Weekly')
     .select()
@@ -142,7 +142,7 @@ bot.command("Monday", (ctx) => {
 })
 
 //tuesday
-bot.command("Tuesday", (ctx) => {
+bot.command("tuesday", (ctx) => {
   ctx.deleteMessage()
   airTasks('Weekly')
     .select()
@@ -160,7 +160,7 @@ bot.command("Tuesday", (ctx) => {
 })
 
 //wednesday
-bot.command("Wednesday", (ctx) => {
+bot.command("wednesday", (ctx) => {
   ctx.deleteMessage()
   airTasks('Weekly')
     .select()
@@ -178,7 +178,7 @@ bot.command("Wednesday", (ctx) => {
 })
 
 //thursday
-bot.command("Thursday", (ctx) => {
+bot.command("thursday", (ctx) => {
   ctx.deleteMessage()
   airTasks('Weekly')
     .select()
@@ -196,7 +196,7 @@ bot.command("Thursday", (ctx) => {
 })
 
 //friday
-bot.command("Friday", (ctx) => {
+bot.command("friday", (ctx) => {
   ctx.deleteMessage()
   airTasks('Weekly')
     .select()
@@ -214,7 +214,7 @@ bot.command("Friday", (ctx) => {
 })
 
 //saturday
-bot.command("Saturday", (ctx) => {
+bot.command("saturday", (ctx) => {
   ctx.deleteMessage()
   airTasks('Weekly')
     .select()
@@ -232,7 +232,7 @@ bot.command("Saturday", (ctx) => {
 })
 
 //sunday
-bot.command("Sunday", (ctx) => {
+bot.command("sunday", (ctx) => {
   ctx.deleteMessage()
   airTasks('Weekly')
     .select()
