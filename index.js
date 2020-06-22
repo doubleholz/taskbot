@@ -73,6 +73,7 @@ bot.command("goals", (ctx) => {
   descArr = []
   dateArr = []
   goalArr = []
+  diffArr = []
   utc = moment().format().split("T")
   utcPlusMonth = moment().add(1, "months").format().split("T")
   airTasks('Monthly')
@@ -87,6 +88,7 @@ bot.command("goals", (ctx) => {
         desc = record.get("Description")
         date = record.get("Milestone/Deadline")  
         diff = moment(date).diff(utc[0], "days")
+        console.log(diff)
         if ((diff < 30) && (moment(date).isBefore(utc[0], "days") == false)) {
           nameArr.push(name)
           descArr.push(desc)
