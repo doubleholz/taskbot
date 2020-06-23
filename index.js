@@ -35,7 +35,7 @@ bot.start((ctx) => {
 })
 
 //Update Daily Tasks
-bot.command("Update", (ctx) => {
+bot.command("update", (ctx) => {
   ctx.deleteMessage()
   msg = ctx.message.text.split("\n")
   dayItem = msg[1].charAt(0).toUpperCase() + msg[1].slice(1)
